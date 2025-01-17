@@ -3,14 +3,16 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main # or the branch you want to trigger the action on
+      - main # Trigger action on pushes to the main branch
   pull_request:
     branches:
-      - main # or the branch you want to trigger on pull requests
+      - main # Trigger action on PRs targeting the main branch
+  release:
+    types: [created] # Optional: trigger on new releases if you prefer using GitHub releases directly
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Or use the environment that suits your project
+    runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout the code
@@ -25,16 +27,39 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
-      # Step 4: Run tests (if applicable)
+      # Step 4: Run tests
       - name: Run tests
-        run: npm test # You can change this to your specific test script
+        run: npm test
 
-      # Optional: Build your project if you need to build before deployment
+      # Step 5: Build project (optional, if your project requires it)
       - name: Build project
-        run: npm run build # Change this if you have a custom build script
+        run: npm run build
 
-      # Optional: Lint your project
+      # Step 6: Lint the code (optional)
       - name: Lint code
-        run: npm run lint # If you have a lint script
+        run: npm run lint
+
+      # Step 7: Create a new version tag (automatically increment version)
+      - name: Create a new version tag
+        run: |
+          npm version patch -m "Bump version to %s" # Change patch to minor or major as needed
+
+      # Step 8: Push the changes and tags to GitHub
+      - name: Push changes and tags
+        run: |
+          git push origin main
+          git push origin --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step 9: Create a GitHub release
+      - name: Create GitHub Release
+        run: |
+          TAG_NAME=$(git describe --tags)
+          RELEASE_NAME="Release $TAG_NAME"
+          RELEASE_BODY="Release notes for $TAG_NAME"
+          gh release create $TAG_NAME dist/* --title "$RELEASE_NAME" --notes "$RELEASE_BODY"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
