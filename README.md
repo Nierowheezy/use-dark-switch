@@ -931,6 +931,8 @@ If you encounter issues while using `useDarkSwitch`, consider the following:
 
 ### Conclusion
 
+---
+
 The `useDarkSwitch` package provides a flexible and powerful solution for implementing dark mode in React applications. By following these examples, best practices, and advanced topics, you can create a robust and user-friendly theming system for your project.
 
 Remember to always consider accessibility, performance, and user preferences when implementing dark mode. With `useDarkSwitch`, you have the tools to create an excellent theme-switching experience that enhances your application's usability and appeal.
