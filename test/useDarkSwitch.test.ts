@@ -123,7 +123,7 @@ describe('useDarkSwitch', () => {
     act(() => {
       result.current.enable(); // Ensure we test actual behavior
     });
-    expect(customStorage.setItem).toHaveBeenCalledWith('false', 'true'); // If enabling dark mode, expect setItem to be called
+    expect(customStorage.setItem).toHaveBeenCalledWith('dark-mode', 'true'); // Expect setItem to be called
   });
 
   it('should apply custom class names', () => {
