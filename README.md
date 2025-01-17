@@ -66,7 +66,7 @@ yarn  add  use-dark-switch
 ```jsx
 import React from 'react';
 
-import useDarkSwitch from 'use-dark-switch';
+import { useDarkSwitch } from 'use-dark-switch';
 
 const App = () => {
   const { value, toggle, enable, disable } = useDarkSwitch();
@@ -141,7 +141,7 @@ The hook returns an object with the following properties:
 ```jsx
 import React from 'react';
 
-import useDarkSwitch from 'use-dark-switch';
+import { useDarkSwitch } from 'use-dark-switch';
 
 const CustomDarkModeApp = () => {
   const darkMode = useDarkSwitch(false, {
