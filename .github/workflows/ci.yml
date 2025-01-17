@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main # or the branch you want to trigger the action on
+  pull_request:
+    branches:
+      - main # or the branch you want to trigger on pull requests
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Or use the environment that suits your project
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Specify your Node.js version, e.g., 16, 18, etc.
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests (if applicable)
+      - name: Run tests
+        run: npm test # You can change this to your specific test script
+
+      # Optional: Build your project if you need to build before deployment
+      - name: Build project
+        run: npm run build # Change this if you have a custom build script
+
+      # Optional: Lint your project
+      - name: Lint code
+        run: npm run lint # If you have a lint script
