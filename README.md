@@ -5,7 +5,7 @@
 ❤️ it? ⭐️ it on [GitHub](https://github.com/nierowheezy/use-dark-switch/stargazers) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20the%20useDarkSwitch%20custom%20React%20Hook%20that%20simplifies%20adding%20a%20persistent%20dark%20mode%20setting%20to%20your%20app.&url=https%3A%2F%2Fgithub.com%2Fnierowheezy%2Fuse-dark-switch&via=__nierowheezy&hashtags=reactjs,hooks,darkmode)
 about it.
 
-![Version](https://img.shields.io/npm/v/use-dark-switch) ![NPM Weekly Downloads](https://img.shields.io/npm/dw/use-dark-switch.svg) ![Contributors](https://img.shields.io/github/contributors/nierowheezy/use-dark-switch.svg) ![Issues](https://img.shields.io/github/issues/nierowheezy/use-dark-switch.svg) ![Forks](https://img.shields.io/github/forks/nierowheezy/use-dark-switch.svg)
+![Version](https://img.shields.io/npm/v/use-dark-switch) ![Contributors](https://img.shields.io/github/contributors/nierowheezy/use-dark-switch.svg) ![Issues](https://img.shields.io/github/issues/nierowheezy/use-dark-switch.svg) ![Forks](https://img.shields.io/github/forks/nierowheezy/use-dark-switch.svg)
 
 [GitHub Repository](https://github.com/nierowheezy/use-dark-switch) | [Report Issues](https://github.com/nierowheezy/use-dark-switch/issues)
 
